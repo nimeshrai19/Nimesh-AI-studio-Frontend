@@ -1,22 +1,32 @@
-// Basic MVP chat simulation
-const form = document.getElementById("inputArea");
-const input = document.getElementById("userInput");
-const messages = document.getElementById("messages");
+const chatForm = document.getElementById("chatForm");
+const chatInput = document.getElementById("chatInput");
+const chatWindow = document.getElementById("chatWindow");
 
-form.addEventListener("submit", e => {
+chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const text = input.value.trim();
+  const text = chatInput.value.trim();
   if (!text) return;
   addMessage(text, "user");
-  input.value = "";
-  // Simulate an AI response
-  setTimeout(() => addMessage("👋 This is your AI responding!", "ai"), 600);
+  chatInput.value = "";
+
+  // Simulated AI team response
+  setTimeout(() => {
+    const replies = [
+      "Analyzing your request...",
+      "Running calculations...",
+      "Idea logged in memory.",
+      "Claude agrees with that direction.",
+      "Let's refine that feature next!"
+    ];
+    const reply = replies[Math.floor(Math.random() * replies.length)];
+    addMessage(reply, "ai");
+  }, 600);
 });
 
-function addMessage(text, role){
+function addMessage(text, role) {
   const div = document.createElement("div");
   div.className = `message ${role}`;
   div.textContent = text;
-  messages.appendChild(div);
-  messages.scrollTop = messages.scrollHeight;
+  chatWindow.appendChild(div);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
 }
