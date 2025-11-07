@@ -2,40 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nimesh AI Studio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nimesh AI Studio — Team Workspace</title>
+
+  <!-- Futuristic fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <div class="layout">
-    <aside class="sidebar">
-      <h2>🧠 AI Studio</h2>
-      <ul>
-        <li class="active">GPT-5</li>
-        <li>Claude</li>
-        <li>Gemini</li>
-        <li>Cody</li>
-        <li>Vision</li>
-      </ul>
-      <button id="addAgent">+ Add Agent</button>
+  <div id="app" class="app">
+    <!-- LEFT SIDEBAR -->
+    <aside id="leftBar" class="sidebar left">
+      <div class="bar-header">
+        <button id="leftCollapse" class="icon-btn" title="Collapse">
+          <span>❮</span>
+        </button>
+        <h1 class="brand"><span class="glyph">◈</span> AI Studio</h1>
+      </div>
+
+      <div class="section">
+        <button class="pill-btn primary">＋ New Chat</button>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Projects</div>
+        <ul class="list">
+          <li class="item">
+            <span>project name</span>
+            <button class="dots" aria-label="Project menu">⋯</button>
+          </li>
+          <li class="item"><span>project name</span><button class="dots">⋯</button></li>
+          <li class="item"><span>project name</span><button class="dots">⋯</button></li>
+          <li class="item"><span>project name</span><button class="dots">⋯</button></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Chats</div>
+        <ul class="list">
+          <li class="item"><span>chat name</span><button class="dots">⋯</button></li>
+          <li class="item"><span>chat name</span><button class="dots">⋯</button></li>
+          <li class="item"><span>chat name</span><button class="dots">⋯</button></li>
+          <li class="item"><span>chat name</span><button class="dots">⋯</button></li>
+        </ul>
+      </div>
+
+      <div class="dock">
+        <button class="dock-btn">TEAM MANAGEMENT</button>
+        <button class="dock-btn">TEAM MEETINGS</button>
+        <button class="dock-btn">SCHEDULES / DEADLINES</button>
+        <button class="dock-btn">NOTES</button>
+      </div>
     </aside>
 
-    <main class="chat">
-      <div id="chatWindow"></div>
-      <form id="chatForm">
-        <input id="chatInput" type="text" placeholder="Type a message to your AI team..." autocomplete="off" />
-        <button type="submit">Send</button>
+    <!-- CENTER PANEL (CHAT) -->
+    <main class="main">
+      <header class="top-notice">
+        <div class="pulse"></div>
+        <span>System ready — type to brief your team.</span>
+      </header>
+
+      <section id="chat" class="chat">
+        <!-- Sample conversation to match your mock -->
+        <div class="bubble ai">
+          <p><strong>Got you.</strong> Here are two common “teleport on arrival” patterns for Roblox.<br>
+          Put the scripts in <strong>ServerScriptService</strong>.</p>
+          <p><strong>A)</strong> Teleport the player to a specific spot when they join (same server)<br>
+          1. Etc etc continues from here</p>
+        </div>
+
+        <div class="bubble user">
+          write me a code for making a person teleport upon arrival
+        </div>
+      </section>
+
+      <form id="composer" class="composer" autocomplete="off">
+        <button class="plus" type="button" title="Add attachment">＋</button>
+        <input id="prompt" class="prompt" placeholder="Prompt Here" />
+        <button class="send" type="submit">Send</button>
       </form>
     </main>
 
-    <aside class="rightPanel">
-      <h3>🧩 Memory / Notes</h3>
-      <div id="notes">
-        <p>No memory loaded yet.</p>
+    <!-- RIGHT SIDEBAR (TEAM) -->
+    <aside id="rightBar" class="sidebar right">
+      <div class="bar-header right-head">
+        <h2 class="team-title">T<span class="flip">A</span>EM</h2>
+        <button id="rightCollapse" class="icon-btn" title="Collapse"><span>❯</span></button>
       </div>
+
+      <div class="team-card shimmer"></div>
+      <div class="team-card shimmer"></div>
+      <div class="team-card shimmer"></div>
+      <div class="team-card shimmer"></div>
     </aside>
   </div>
 
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>

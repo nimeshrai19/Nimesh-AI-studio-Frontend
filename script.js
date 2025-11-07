@@ -1,32 +1,50 @@
-const chatForm = document.getElementById("chatForm");
-const chatInput = document.getElementById("chatInput");
-const chatWindow = document.getElementById("chatWindow");
+// Sidebar collapse controls
+const app = document.getElementById('app');
+const leftCollapse = document.getElementById('leftCollapse');
+const rightCollapse = document.getElementById('rightCollapse');
 
-chatForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const text = chatInput.value.trim();
-  if (!text) return;
-  addMessage(text, "user");
-  chatInput.value = "";
-
-  // Simulated AI team response
-  setTimeout(() => {
-    const replies = [
-      "Analyzing your request...",
-      "Running calculations...",
-      "Idea logged in memory.",
-      "Claude agrees with that direction.",
-      "Let's refine that feature next!"
-    ];
-    const reply = replies[Math.floor(Math.random() * replies.length)];
-    addMessage(reply, "ai");
-  }, 600);
+leftCollapse.addEventListener('click', () => {
+  app.classList.toggle('collapsed-left');
 });
 
-function addMessage(text, role) {
-  const div = document.createElement("div");
-  div.className = `message ${role}`;
+rightCollapse?.addEventListener('click', () => {
+  app.classList.toggle('collapsed-right');
+});
+
+// Simple mock chat so you can see motion immediately
+const composer = document.getElementById('composer');
+const promptInput = document.getElementById('prompt');
+const chat = document.getElementById('chat');
+
+composer.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const text = promptInput.value.trim();
+  if (!text) return;
+
+  addBubble(text, 'user');
+  promptInput.value = '';
+
+  // Simulate AI "typing"
+  setTimeout(() => streamAI([
+    "Analyzing your request…",
+    "Formulating plan for agents (GPT-5, Claude, Gemini)…",
+    "Drafting steps and sample Luau code block…"
+  ]), 350);
+});
+
+function addBubble(text, role='ai'){
+  const div = document.createElement('div');
+  div.className = `bubble ${role}`;
   div.textContent = text;
-  chatWindow.appendChild(div);
-  chatWindow.scrollTop = chatWindow.scrollHeight;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
 }
+
+async function streamAI(lines){
+  for (const line of lines){
+    await wait(500);
+    addBubble(line, 'ai');
+  }
+}
+
+function wait(ms){ return new Promise(res => setTimeout(res, ms)); }
