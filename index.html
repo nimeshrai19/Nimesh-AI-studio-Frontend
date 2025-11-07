@@ -2,101 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nimesh AI Studio — Team Workspace</title>
-
-  <!-- Futuristic fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Studio Workspace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="app" class="app">
+  <div class="app">
     <!-- LEFT SIDEBAR -->
-    <aside id="leftBar" class="sidebar left">
-      <div class="bar-header">
-        <button id="leftCollapse" class="icon-btn" title="Collapse">
-          <span>❮</span>
-        </button>
-        <h1 class="brand"><span class="glyph">◈</span> AI Studio</h1>
+    <aside class="sidebar">
+      <div class="nav-section">
+        <button class="new-chat">New Chat</button>
       </div>
 
-      <div class="section">
-        <button class="pill-btn primary">＋ New Chat</button>
-      </div>
-
-      <div class="section">
-        <div class="section-title">Projects</div>
-        <ul class="list">
-          <li class="item">
-            <span>project name</span>
-            <button class="dots" aria-label="Project menu">⋯</button>
-          </li>
-          <li class="item"><span>project name</span><button class="dots">⋯</button></li>
-          <li class="item"><span>project name</span><button class="dots">⋯</button></li>
-          <li class="item"><span>project name</span><button class="dots">⋯</button></li>
+      <div class="nav-section">
+        <h3>Projects</h3>
+        <ul>
+          <li><span>project name</span><button class="dots">⋯</button></li>
+          <li><span>project name</span><button class="dots">⋯</button></li>
+          <li><span>project name</span><button class="dots">⋯</button></li>
+          <li><span>project name</span><button class="dots">⋯</button></li>
         </ul>
       </div>
 
-      <div class="section">
-        <div class="section-title">Chats</div>
-        <ul class="list">
-          <li class="item"><span>chat name</span><button class="dots">⋯</button></li>
-          <li class="item"><span>chat name</span><button class="dots">⋯</button></li>
-          <li class="item"><span>chat name</span><button class="dots">⋯</button></li>
-          <li class="item"><span>chat name</span><button class="dots">⋯</button></li>
+      <div class="nav-section">
+        <h3>Chats</h3>
+        <ul>
+          <li><span>chat name</span><button class="dots">⋯</button></li>
+          <li><span>chat name</span><button class="dots">⋯</button></li>
+          <li><span>chat name</span><button class="dots">⋯</button></li>
+          <li><span>chat name</span><button class="dots">⋯</button></li>
         </ul>
       </div>
 
-      <div class="dock">
-        <button class="dock-btn">TEAM MANAGEMENT</button>
-        <button class="dock-btn">TEAM MEETINGS</button>
-        <button class="dock-btn">SCHEDULES / DEADLINES</button>
-        <button class="dock-btn">NOTES</button>
+      <div class="bottom-links">
+        <button>TEAM MANAGEMENT</button>
+        <button>TEAM MEETINGS</button>
+        <button>SCHEDULES / DEADLINES</button>
+        <button>NOTES</button>
       </div>
     </aside>
 
-    <!-- CENTER PANEL (CHAT) -->
-    <main class="main">
-      <header class="top-notice">
-        <div class="pulse"></div>
-        <span>System ready — type to brief your team.</span>
-      </header>
-
-      <section id="chat" class="chat">
-        <!-- Sample conversation to match your mock -->
-        <div class="bubble ai">
-          <p><strong>Got you.</strong> Here are two common “teleport on arrival” patterns for Roblox.<br>
-          Put the scripts in <strong>ServerScriptService</strong>.</p>
+    <!-- MAIN CHAT AREA -->
+    <main class="chat-area">
+      <div class="messages">
+        <div class="message ai">
+          <p>Got you. Here are two common “teleport on arrival” patterns for Roblox.<br>
+            Put the scripts in <strong>ServerScriptService</strong>.</p>
           <p><strong>A)</strong> Teleport the player to a specific spot when they join (same server)<br>
-          1. Etc etc continues from here</p>
+            1. Etc etc continues from here
+          </p>
         </div>
 
-        <div class="bubble user">
-          write me a code for making a person teleport upon arrival
+        <div class="message user">
+          <p>write me a code for making a person teleport upon arrival</p>
         </div>
-      </section>
-
-      <form id="composer" class="composer" autocomplete="off">
-        <button class="plus" type="button" title="Add attachment">＋</button>
-        <input id="prompt" class="prompt" placeholder="Prompt Here" />
-        <button class="send" type="submit">Send</button>
-      </form>
-    </main>
-
-    <!-- RIGHT SIDEBAR (TEAM) -->
-    <aside id="rightBar" class="sidebar right">
-      <div class="bar-header right-head">
-        <h2 class="team-title">T<span class="flip">A</span>EM</h2>
-        <button id="rightCollapse" class="icon-btn" title="Collapse"><span>❯</span></button>
       </div>
 
-      <div class="team-card shimmer"></div>
-      <div class="team-card shimmer"></div>
-      <div class="team-card shimmer"></div>
-      <div class="team-card shimmer"></div>
+      <div class="prompt-bar">
+        <button class="plus">+</button>
+        <input type="text" placeholder="Prompt Here">
+      </div>
+    </main>
+
+    <!-- TEAM PANEL -->
+    <aside class="team-panel">
+      <div class="team-header">
+        <h2>T<span class="flip">A</span>EM</h2>
+      </div>
+      <div class="team-card"></div>
+      <div class="team-card"></div>
+      <div class="team-card"></div>
+      <div class="team-card"></div>
     </aside>
   </div>
 
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
